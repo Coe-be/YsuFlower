@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Python from HTML</title>
+</head>
+
+<body>
+    <h1>Call Python from HTML</h1>
+    <button onclick="callPython()">Call Python</button>
+    <div id="output"></div>
+
+    <script>
+        function callPython() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/test", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("output").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>

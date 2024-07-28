@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>百度API集成示例</title>
+</head>
+
+<body>
+    <div id="result">
+        <!-- API结果将显示在这里 -->
+    </div>
+    <script type="text/javascript">
+        alert("Hello, World!");  
+    </script>
+
+    <script>
+        // 替换为您的API Key
+        const apiKey = 'eRCllt6gdnWvXR3eT11ykcI6';
+
+        // 百度API的URL
+        const apiURL = `https://api.example.com/path?api_key=${apiKey}&q=您的查询`;
+
+        function callBaiduAPI() {
+            fetch(apiURL)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // 处理API返回的数据
+                    const resultDiv = document.getElementById('result');
+                    resultDiv.innerHTML = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                });
+        }
+
+        // 调用API
+        callBaiduAPI();
+    </script>
+</body>
+
+</html>

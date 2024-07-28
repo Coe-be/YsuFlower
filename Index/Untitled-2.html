@@ -1,0 +1,18 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+
+<body>
+    <b>
+        <p>今天是<u><label id='today'></label></u></p>
+    </b>
+    <py-script>
+        import datetime as dt
+        pyscript.write('today', dt.date.today().strftime('%A %B %d, %Y'))
+    </py-script>
+</body>
+
+</html>
